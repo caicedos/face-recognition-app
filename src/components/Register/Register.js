@@ -20,7 +20,7 @@ class Register extends Component {
     this.setState({ password: event.target.value });
   };
   onSubmitRegister = () => {
-    fetch("http://localhost:3000/register", {
+    fetch("https://mighty-inlet-18738.herokuapp.com/register", {
       method: "post",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({

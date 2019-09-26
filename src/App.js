@@ -64,9 +64,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000")
+    console.log('frontend: ', 'mounted')
+    fetch("https://mighty-inlet-18738.herokuapp.com")
       .then(response => response.json())
-      .then(console.log);
+      .then((data)=>console.log('server response: ', data));
   }
 
   loadUser = user => {
@@ -98,7 +99,7 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch("http://localhost:3000/imageUrl", {
+    fetch("https://mighty-inlet-18738.herokuapp.com/imageUrl", {
       method: "post",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
@@ -108,7 +109,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch("http://localhost:3000/image", {
+          fetch("https://mighty-inlet-18738.herokuapp.com/image", {
             method: "put",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
