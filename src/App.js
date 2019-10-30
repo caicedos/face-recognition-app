@@ -43,19 +43,19 @@ const particlesOptions = {
 };
 
 const initialState = {
-      input: "",
-      imageUrl: "",
-      box: {},
-      route: "signin",
-      isSignedIn: false,
-      user: {
-        id: "",
-        name: "",
-        email: "",
-        password: "",
-        entries: 0,
-        joined: ""
-      }
+  input: "",
+  imageUrl: "",
+  box: {},
+  route: "signin",
+  isSignedIn: false,
+  user: {
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    entries: 0,
+    joined: ""
+  }
 }
 
 class App extends Component {
@@ -68,7 +68,7 @@ class App extends Component {
     console.log('frontend: ', 'mounted')
     fetch("https://mighty-inlet-18738.herokuapp.com")
       .then(response => response.json())
-      .then((data)=>console.log('server response: ', data));
+      .then((data) => console.log('server response: ', data));
   }
 
   loadUser = user => {
@@ -81,7 +81,7 @@ class App extends Component {
     const image = document.getElementById("input_image");
     const width = Number(image.width);
     const height = Number(image.height);
-   
+
     return {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
@@ -119,7 +119,7 @@ class App extends Component {
           })
             .then(response => response.json())
             .then(count => {
-              this.setState(Object.assign(this.state.user, {entries:count}))
+              this.setState(Object.assign(this.state.user, { entries: count }))
             })
             .catch(console.log)
         }
@@ -150,7 +150,7 @@ class App extends Component {
         {route === "home" ? (
           <div>
             <ErrorBoundry>
-             <Logo /> 
+              <Logo />
             </ErrorBoundry>
             <Rank
               name={this.state.user.name}
@@ -165,11 +165,11 @@ class App extends Component {
         ) : route === "signin" || route === "signout" ? (
           <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         ) : (
-          <Register
-            loadUser={this.loadUser}
-            onRouteChange={this.onRouteChange}
-          />
-        )}
+              <Register
+                loadUser={this.loadUser}
+                onRouteChange={this.onRouteChange}
+              />
+            )}
       </div>
     );
   }
