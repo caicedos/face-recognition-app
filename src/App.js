@@ -7,6 +7,7 @@ import Rank from "./components/Rank/Rank";
 import Particles from "react-particles-js";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
+import ErrorBoundry from "./components/ErrorBoundry/ErrorBoundry";
 import "./App.css";
 
 
@@ -148,7 +149,9 @@ class App extends Component {
         />
         {route === "home" ? (
           <div>
-            <Logo />
+            <ErrorBoundry>
+             <Logo /> 
+            </ErrorBoundry>
             <Rank
               name={this.state.user.name}
               entries={this.state.user.entries}
