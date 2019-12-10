@@ -1,13 +1,20 @@
-## Face Recognition App
+# Face Recognition App
 
-Description of the App.
+This app lets the user access the Clarify API to use face recognition on the image the user provides.
 
-### `Skills learned`
+If the user registers they can keep count of the number of images they have submitted.
 
-List of skills.
+Technologies used:
+ * React
+ * Clarify API
+ * Node
+ * Express
+ * Javascript
+ * JSX
+ * CSS
+ * HTML
+ * Postgresql
 
-### `how to use`
 
-Instructons on how to use how to use the app.
 
 
